@@ -129,7 +129,7 @@ function renderMoves() {
 }
 
 async function createRoom() {
-
+alert("Create button is working!");
   const code =
     "OPEN-" + Math.floor(1000 + Math.random() * 9000);
 
