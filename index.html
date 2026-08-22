@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenChess — Play Chess Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span>♟</span> OpenChess</div>
+    <nav>
+      <a href="#play">Play</a>
+      <a href="#how">How it works</a>
+      <button id="newGameTop">New Game</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">PUBLIC CHESS ARENA</p>
+        <h1>Play chess.<br><span>Meet your next opponent.</span></h1>
+        <p class="subtitle">A clean public chess lobby where players can create a game, share a room, and play on the same device.</p>
+        <div class="hero-actions">
+          <button class="primary" id="newGameHero">Create Public Game</button>
+          <button class="secondary" id="copyRoom">Copy Room Link</button>
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="live-dot"></div>
+        <strong>Public lobby</strong>
+        <span id="roomStatus">Room ready</span>
+      </div>
+    </section>
+
+    <section id="play" class="game-layout">
+      <aside class="panel lobby">
+        <div class="panel-head">
+          <h2>Public Lobby</h2>
+          <span class="online"><i></i> Online</span>
+        </div>
+        <div class="room-code">
+          <small>ROOM CODE</small>
+          <strong id="roomCode">OPEN-4821</strong>
+        </div>
+        <button class="primary full" id="joinRandom">Find Opponent</button>
+        <div class="players">
+          <div class="player"><span class="avatar">W</span><div><b>You</b><small>White</small></div><em>●</em></div>
+          <div class="player waiting"><span class="avatar">?</span><div><b>Waiting...</b><small>Public opponent</small></div><em>○</em></div>
+        </div>
+        <div class="tips">
+          <b>Coming next</b>
+          <p>Real-time matchmaking, accounts, ratings, chat, clocks and game history can be connected to a backend.</p>
+        </div>
+      </aside>
+
+      <section class="board-panel">
+        <div class="board-top"><span>White to move</span><span id="moveCount">Move 1</span></div>
+        <div id="board" class="board" aria-label="Chess board"></div>
+        <div class="board-bottom">
+          <button class="secondary" id="resetBtn">Reset</button>
+          <button class="secondary" id="flipBtn">Flip Board</button>
+        </div>
+      </section>
+
+      <aside class="panel moves-panel">
+        <div class="panel-head"><h2>Game</h2><span id="turnBadge">White</span></div>
+        <div id="moves" class="moves"><div class="empty">Make a move to begin.</div></div>
+        <div class="game-actions">
+          <button class="secondary full" id="drawBtn">Offer Draw</button>
+          <button class="danger full" id="resignBtn">Resign</button>
+        </div>
+      </aside>
+    </section>
+
+    <section id="how" class="how">
+      <h2>Built for public play</h2>
+      <div class="features">
+        <article><span>01</span><h3>Open a room</h3><p>Create a public room and share its code with another player.</p></article>
+        <article><span>02</span><h3>Play on any screen</h3><p>The responsive board works on phones, tablets and desktops.</p></article>
+        <article><span>03</span><h3>Connect multiplayer</h3><p>Add WebSockets and a database when you're ready for true live online games.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>OpenChess prototype · Built as a starting point for a public chess platform</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
