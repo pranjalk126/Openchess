@@ -1,3 +1,4 @@
+import { Chess } from "https://cdn.jsdelivr.net/npm/chess.js@0.10.3/+esm";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 import {
   getDatabase,
