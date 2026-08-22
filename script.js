@@ -134,7 +134,7 @@ alert("Create button is working!");
     "OPEN-" + Math.floor(1000 + Math.random() * 9000);
 
   const roomRef = ref(db, "rooms/" + code);
-
+console.log("Trying to create room:", code);
   await set(roomRef, {
     fen: game.fen(),
     history: [],
