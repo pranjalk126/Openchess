@@ -568,17 +568,69 @@ document.getElementById(
   );
 };
 
+let gameMode = "online";
+
+function setMode(mode) {
+  gameMode = mode;
+
+  if (mode === "online") {
+    document.getElementById("roomStatus").textContent =
+      "Online Multiplayer";
+
+    document.getElementById("opponentType").textContent =
+      "Friend / Online Player";
+
+    render();
+
+  } else if (mode === "offline") {
+    roomCode = null;
+    playerColor = null;
+    game.reset();
+    selected = null;
+
+    document.getElementById("roomStatus").textContent =
+      "2 Player Offline";
+
+    document.getElementById("opponentType").textContent =
+      "Black Player";
+
+    render();
+
+  } else if (mode === "computer") {
+    roomCode = null;
+    playerColor = "w";
+    game.reset();
+    selected = null;
+
+    document.getElementById("roomStatus").textContent =
+      "Playing vs Computer";
+
+    document.getElementById("opponentType").textContent =
+      "Computer 🤖";
+
+    render();
+  }
+}
+
+
+document.getElementById("onlineMode").onclick = () => {
+  setMode("online");
+};
+
+
+document.getElementById("offlineMode").onclick = () => {
+  setMode("offline");
+};
+
+
+document.getElementById("computerMode").onclick = () => {
+  setMode("computer");
+};
+
 
 if (roomCode) {
-
+  gameMode = "online";
   joinRoom(roomCode);
-
 } else {
-
-  document.getElementById(
-    "roomStatus"
-  ).textContent =
-    "Create a room to play online";
-
-  render();
+  setMode("offline");
 }
