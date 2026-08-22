@@ -320,7 +320,25 @@ document.getElementById("joinRandom").onclick = () => {
 };
 
 document.getElementById("copyRoom").onclick = async () => {
+  const code = document.getElementById("roomCode").textContent.trim();
 
+  if (!code || code === "OPEN-4821") {
+    alert("Create a game first.");
+    return;
+  }
+
+  const link =
+    location.origin +
+    location.pathname +
+    "?room=" +
+    encodeURIComponent(code);
+
+  await navigator.clipboard.writeText(link);
+
+  document.getElementById("roomStatus").textContent =
+    "Room link copied!";
+};
+  
   if (!roomCode) {
     alert("Create a game first.");
     return;
