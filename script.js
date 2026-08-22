@@ -26,7 +26,7 @@ const pieces = {
   b:{K:"♚",Q:"♛",R:"♜",B:"♝",N:"♞",P:"♟"}
 };
 
-let game;
+let game= new chess() ;
 let selected = null;
 let flipped = false;
 let roomCode = new URLSearchParams(location.search).get("room");
