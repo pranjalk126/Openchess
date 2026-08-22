@@ -467,6 +467,7 @@ document.getElementById(
   "newGameHero"
 ).onclick = newGame;
 
+console.log("Create Public Game button connected");
 
 document.getElementById(
   "resetBtn"
