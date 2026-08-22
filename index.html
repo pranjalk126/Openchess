@@ -3,107 +3,328 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OpenChess — Play Chess Online</title>
+  <title>OpenChess — Play Chess</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="brand"><span>♟</span> OpenChess</div>
-    <nav>
-      <a href="#play">Play</a>
-      <a href="#how">How it works</a>
-      <button id="newGameTop">New Game</button>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div>
-        <p class="eyebrow">PUBLIC CHESS ARENA</p>
-        <h1>Play chess.<br><span>Meet your next opponent.</span></h1>
-        <p class="subtitle">A clean public chess lobby where players can create a game, share a room, and play on the same device.</p>
-        <div class="hero-actions">
-          <button class="primary" id="newGameHero">Create Public Game</button>
-          <button class="secondary" id="copyRoom">Copy Room Link</button>
+<header class="topbar">
+  <div class="brand"><span>♟</span> OpenChess</div>
+
+  <nav>
+    <a href="#play">Play</a>
+    <a href="#how">How it works</a>
+    <button id="newGameTop">New Game</button>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+
+  <div>
+
+    <p class="eyebrow">PUBLIC CHESS ARENA</p>
+
+    <h1>
+      Play chess.<br>
+      <span>Your way.</span>
+    </h1>
+
+    <p class="subtitle">
+      Play online with friends, challenge the computer,
+      or play two-player chess on the same device.
+    </p>
+
+    <div class="hero-actions">
+
+      <button class="primary" id="newGameHero">
+        New Game
+      </button>
+
+      <button class="secondary" id="copyRoom">
+        Copy Room Link
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="mini-card">
+
+    <div class="live-dot"></div>
+
+    <strong>Chess Arena</strong>
+
+    <span id="roomStatus">
+      Choose a game mode
+    </span>
+
+  </div>
+
+</section>
+
+
+<section id="play" class="game-layout">
+
+
+  <!-- LEFT PANEL -->
+
+  <aside class="panel lobby">
+
+    <div class="panel-head">
+
+      <h2>Game Mode</h2>
+
+      <span class="online">
+        <i></i> Ready
+      </span>
+
+    </div>
+
+
+    <div class="game-actions">
+
+      <button
+        class="primary full"
+        id="onlineMode">
+        🌐 Online Multiplayer
+      </button>
+
+      <button
+        class="secondary full"
+        id="computerMode">
+        🤖 Vs Computer
+      </button>
+
+      <button
+        class="secondary full"
+        id="offlineMode">
+        👥 2 Player Offline
+      </button>
+
+    </div>
+
+
+    <div class="room-code">
+
+      <small>ROOM CODE</small>
+
+      <strong id="roomCode">
+        OPEN-4821
+      </strong>
+
+    </div>
+
+
+    <button
+      class="primary full"
+      id="joinRandom">
+      Find Opponent
+    </button>
+
+
+    <div class="players">
+
+      <div class="player">
+
+        <span class="avatar">W</span>
+
+        <div>
+          <b>Player 1</b>
+          <small>White</small>
         </div>
+
+        <em>●</em>
+
       </div>
-      <div class="mini-card">
-        <div class="live-dot"></div>
-        <strong>Public lobby</strong>
-        <span id="roomStatus">Room ready</span>
+
+
+      <div class="player waiting">
+
+        <span class="avatar">?</span>
+
+        <div>
+          <b id="opponentName">
+            Waiting...
+          </b>
+
+          <small id="opponentType">
+            Choose a mode
+          </small>
+        </div>
+
+        <em>○</em>
+
       </div>
-    </section>
 
-    <section id="play" class="game-layout">
-      <aside class="panel lobby">
-        <div class="panel-head">
-          <h2>Public Lobby</h2>
-          <span class="online"><i></i> Online</span>
-        </div>
-        <div class="room-code">
-          <small>ROOM CODE</small>
-          <strong id="roomCode">OPEN-4821</strong>
-        </div>
-        <button class="primary full" id="joinRandom">Find Opponent</button>
-        <div class="players">
-          <div class="player"><span class="avatar">W</span><div><b>You</b><small>White</small></div><em>●</em></div>
-          <div class="player waiting"><span class="avatar">?</span><div><b>Waiting...</b><small>Public opponent</small></div><em>○</em></div>
-        </div>
-        <div class="tips">
-          <b>Coming next</b>
-          <p>Real-time matchmaking, accounts, ratings, chat, clocks and game history can be connected to a backend.</p>
-        </div>
-      </aside>
+    </div>
 
-      <section class="board-panel">
-        <div class="board-top"><span>White to move</span><span id="moveCount">Move 1</span></div>
-        <div id="board" class="board" aria-label="Chess board"></div>
-        <div class="board-bottom">
-          <button class="secondary" id="resetBtn">Reset</button>
-          <button class="secondary" id="flipBtn">Flip Board</button>
-        </div>
-      </section>
 
-      <aside class="panel moves-panel">
-        <div class="panel-head"><h2>Game</h2><span id="turnBadge">White</span></div>
-        <div id="moves" class="moves"><div class="empty">Make a move to begin.</div></div>
-        <div class="game-actions">
-          <button class="secondary full" id="drawBtn">Offer Draw</button>
-          <button class="danger full" id="resignBtn">Resign</button>
-        </div>
-      </aside>
-    </section>
+    <div class="tips">
 
-    <section id="how" class="how">
-      <h2>Built for public play</h2>
-      <div class="features">
-        <article><span>01</span><h3>Open a room</h3><p>Create a public room and share its code with another player.</p></article>
-        <article><span>02</span><h3>Play on any screen</h3><p>The responsive board works on phones, tablets and desktops.</p></article>
-        <article><span>03</span><h3>Connect multiplayer</h3><p>Add WebSockets and a database when you're ready for true live online games.</p></article>
+      <b>Game modes</b>
+
+      <p>
+        Online lets you play with friends using a room link.
+        Vs Computer lets you play against the AI.
+        Offline lets two players share one device.
+      </p>
+
+    </div>
+
+  </aside>
+
+
+  <!-- CHESS BOARD -->
+
+  <section class="board-panel">
+
+    <div class="board-top">
+
+      <span>White to move</span>
+
+      <span id="moveCount">
+        Move 1
+      </span>
+
+    </div>
+
+
+    <div
+      id="board"
+      class="board"
+      aria-label="Chess board">
+    </div>
+
+
+    <div class="board-bottom">
+
+      <button
+        class="secondary"
+        id="resetBtn">
+        Reset
+      </button>
+
+      <button
+        class="secondary"
+        id="flipBtn">
+        Flip Board
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- RIGHT PANEL -->
+
+  <aside class="panel moves-panel">
+
+    <div class="panel-head">
+
+      <h2>Game</h2>
+
+      <span id="turnBadge">
+        White
+      </span>
+
+    </div>
+
+
+    <div
+      id="moves"
+      class="moves">
+
+      <div class="empty">
+        Make a move to begin.
       </div>
-    </section>
-  </main>
 
-  <footer>OpenChess prototype · Built as a starting point for a public chess platform</footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-  import { getDatabase } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
+    </div>
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyCig8XFi4uud8pwM_pYI7EqMmSMGRlMPoI",
-    authDomain: "openchess-171a5.firebaseapp.com",
-    databaseURL: "https://openchess-171a5-default-rtdb.firebaseio.com",
-    projectId: "openchess-171a5",
-    storageBucket: "openchess-171a5.firebasestorage.app",
-    messagingSenderId: "567217558339",
-    appId: "1:567217558339:web:8167ec11e9bbdd216915f6"
-  };
 
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <div class="game-actions">
+
+      <button
+        class="secondary full"
+        id="drawBtn">
+        Offer Draw
+      </button>
+
+      <button
+        class="danger full"
+        id="resignBtn">
+        Resign
+      </button>
+
+    </div>
+
+  </aside>
+
+</section>
+
+
+<section id="how" class="how">
+
+  <h2>Play your way</h2>
+
+  <div class="features">
+
+    <article>
+
+      <span>01</span>
+
+      <h3>Online</h3>
+
+      <p>
+        Create a room and share the link
+        with your friend to play live.
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <span>02</span>
+
+      <h3>Vs Computer</h3>
+
+      <p>
+        Challenge the computer and
+        practice your chess skills.
+      </p>
+
+    </article>
+
+
+    <article>
+
+      <span>03</span>
+
+      <h3>Offline</h3>
+
+      <p>
+        Two players can play on the
+        same phone, tablet or computer.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+  OpenChess · Play chess your way
+</footer>
+
+
 <script type="module" src="script.js"></script>
+
 </body>
 </html>
